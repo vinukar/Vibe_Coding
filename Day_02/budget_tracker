@@ -1,0 +1,29 @@
+def monthly_budget_tracker():
+    print("--- Monthly Budget Tracker ---")
+    
+    # Prompt for total monthly budget
+    try:
+        total_budget = float(input("Enter your total monthly budget (LKR): "))
+        
+        # Prompt for three separate expenses
+        expense1 = float(input("Enter expense 1: "))
+        expense2 = float(input("Enter expense 2: "))
+        expense3 = float(input("Enter expense 3: "))
+        
+        # Calculate the remaining balance
+        total_expenses = expense1 + expense2 + expense3
+        balance = total_budget - total_expenses
+        
+        # Display the final balance formatted to two decimal places
+        print("-" * 30)
+        print(f"Final Balance: {balance:.2f} LKR")
+        
+        # Conditional warning for low funds
+        if balance < 500:
+            print("Warning: Low Funds")
+        
+    except ValueError:
+        print("Error: Please enter valid numerical values.")
+
+if __name__ == "__main__":
+    monthly_budget_tracker()
