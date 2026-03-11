@@ -3,11 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Toolkit</title>
+    <title>Study Timer - Student Toolkit</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        .timer-display {
+            font-size: 6rem;
+            font-weight: 700;
+            text-align: center;
+            letter-spacing: 4px;
+            color: var(--text-primary);
+            margin: 2rem 0;
+            font-variant-numeric: tabular-nums;
+            text-shadow: 0 4px 12px rgba(255, 215, 0, 0.4);
+        }
+        
+        .timer-controls {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .timer-btn {
+            font-size: 1.1rem;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+        }
+    </style>
 </head>
 <body>
     <div class="background-blobs">
@@ -32,9 +57,9 @@
             Student Toolkit
         </div>
         <ul class="nav-links">
-            <li><a href="index.html" class="nav-link active">Home</a></li>
+            <li><a href="index.html" class="nav-link">Home</a></li>
             <li><a href="gpa-calculator.html" class="nav-link">GPA Calculator</a></li>
-            <li><a href="study-timer.html" class="nav-link">Study Timer</a></li>
+            <li><a href="study-timer.html" class="nav-link active">Study Timer</a></li>
             <li>
                 <button id="theme-toggle" class="glass-btn" style="padding: 0.5rem; border-radius: 50%;" title="Toggle Theme">
                     <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
@@ -68,58 +93,27 @@
     </aside>
 
     <main class="container main-content">
-        <div class="glass-card">
+        <div class="glass-card" style="margin-top: 5rem;">
             <header class="header">
-                <h1>Group Idea Board</h1>
-                <button id="manage-members-btn" title="Manage Group Members">
-                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><line x1="20" y1="8" x2="20" y2="14"></line><line x1="17" y1="11" x2="23" y2="11"></line></svg>
-                </button>
+                <h1>Pomodoro Timer</h1>
             </header>
-
-            <section class="input-section">
-                <div class="input-row">
-                    <select id="member-select" class="glass-input">
-                        <option value="" disabled selected>Select your name...</option>
-                    </select>
-                    <input type="text" id="idea-input" placeholder="Enter your idea here..." class="glass-input">
-                    <div class="button-group">
-                        <button id="add-idea-btn" class="primary-btn">Add Idea</button>
-                        <button id="clear-input-btn" class="glass-btn secondary" title="Clear Inputs">
-                            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
-                        </button>
-                    </div>
-                </div>
-            </section>
-
-            <div class="stats-section">
-                <span id="total-ideas-counter">Total Ideas: 0</span>
-            </div>
-
-            <hr class="divider">
-
+            
             <section class="content-area">
-                <ul id="idea-list">
-                    <!-- Ideas will be injected here -->
-                    <li class="empty-state">No ideas yet. Be the first to share!</li>
-                </ul>
+                <p style="text-align: center; color: var(--text-muted);">
+                    Focus for 25 minutes. No distractions.
+                </p>
+                
+                <div class="timer-display" id="timer-display">
+                    25:00
+                </div>
+
+                <div class="timer-controls">
+                    <button id="start-btn" class="primary-btn timer-btn">Start</button>
+                    <button id="reset-btn" class="glass-btn timer-btn">Reset</button>
+                </div>
             </section>
         </div>
     </main>
-
-    <!-- Member Management Modal -->
-    <div id="member-modal" class="modal">
-        <div class="modal-content glass-card">
-            <div class="modal-header">
-                <h2>Manage Members</h2>
-                <button id="close-modal">&times;</button>
-            </div>
-            <div class="member-add-row">
-                <input type="text" id="new-member-input" placeholder="New member name..." class="glass-input">
-                <button id="save-member-btn" class="primary-btn">Add Member</button>
-            </div>
-            <ul id="modal-member-list"></ul>
-        </div>
-    </div>
 
     <footer class="footer">
         <div class="glass-footer">
@@ -129,6 +123,6 @@
 
     <script src="theme-script.js"></script>
     <script src="sidebar-script.js"></script>
-    <script src="script.js"></script>
+    <script src="timer-script.js"></script>
 </body>
 </html>
